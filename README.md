@@ -8,3 +8,5 @@ Don't forget to start your MySQL server.
 - [x] NodeJS
 - [x] Express
 - [x] Sequelize
+- [ ] VSCode Settings with ESLint & Prettier
+- [ ] ...What else?
