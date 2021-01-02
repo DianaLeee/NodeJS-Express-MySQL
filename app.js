@@ -1,11 +1,10 @@
-// 미들웨어 정의하고 라우터 위치 지정하고...
-// 핵심적인 서버의 역할을 한다. 서버를 만드는거지
 import createError from "http-errors";
 import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 
+import db from  "./models";
 import indexRouter from "./routes/index";
 import usersRouter from "./routes/users";
 
@@ -22,6 +21,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'))); // 정적 파일 제공
+
+// DB 연결 및 예제 테이블 생성
+db.sequelize.sync().then(() => {
+  console.log("DB Connection Success")
+}).catch((error) => {
+  console.log(`DB Connection Error: ${error}`);
+})
 
 // 라우터 등록
 app.use('/', indexRouter);

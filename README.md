@@ -1,2 +1,4 @@
-# NodeJS-Express-MySQL
-Do something with Node.js + Express + MySQL
+# NodeJS-Express-Sequelize Boilerplate
+- [x] NodeJS
+- [x] Express
+- [x] Sequelize
